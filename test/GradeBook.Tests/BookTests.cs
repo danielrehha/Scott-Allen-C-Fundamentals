@@ -46,5 +46,18 @@ namespace GradeBook.Tests
             //assert
             Assert.Equal(expected, result.Average);
         }
+
+        [Fact]
+        public void StatisticsLetter()
+        {
+            var book = new Book("New book");
+            book.AddGrade(92.0);
+            book.AddGrade(65.0);
+            book.AddGrade(50.0);
+
+            var result = book.GetStatistics();
+
+            Assert.Equal('D', result.Letter);
+        }
     }
 }

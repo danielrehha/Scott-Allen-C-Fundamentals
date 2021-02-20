@@ -7,15 +7,20 @@ namespace GradeBook
     {
         public string Name;
         public List<double> grades = new List<double>();
+        private Statistics statistics;
 
         public Book(string name)
         {
             Name = name;
         }
 
-        public Statistics GetStatistics()
+        public void GetStatistics()
         {
-            return new Statistics(grades);
+            statistics = new Statistics(grades);
+            Console.WriteLine($"Low grade: {statistics.Low}");
+            Console.WriteLine($"High grade: {statistics.High}");
+            Console.WriteLine($"Average grade: {statistics.Average:N1}");
+            Console.WriteLine($"Letter: {statistics.Letter}");
         }
 
         public void AddGrade(double grade)
