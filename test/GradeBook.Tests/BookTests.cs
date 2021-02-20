@@ -14,7 +14,8 @@ namespace GradeBook.Tests
             book.AddGrade(12.4);
             book.AddGrade(32.1);
             //act
-            var result = book.GetStatistics();
+            book.GetStatistics();
+            var result = book.Statistics;
             //assert
             Assert.Equal(32.1, result.High);
         }
@@ -28,7 +29,9 @@ namespace GradeBook.Tests
             book.AddGrade(12.4);
             book.AddGrade(32.1);
             //act
-            var result = book.GetStatistics();
+            book.GetStatistics();
+            var result = book.Statistics;
+
             //assert
             Assert.Equal(12.4, result.Low);
         }
@@ -41,7 +44,9 @@ namespace GradeBook.Tests
             book.AddGrade(12.4);
             book.AddGrade(32.1);
             //act
-            var result = book.GetStatistics();
+            book.GetStatistics();
+            var result = book.Statistics;
+
             var expected = (23.2 + 12.4 + 32.1) / 3;
             //assert
             Assert.Equal(expected, result.Average);
@@ -55,7 +60,8 @@ namespace GradeBook.Tests
             book.AddGrade(65.0);
             book.AddGrade(50.0);
 
-            var result = book.GetStatistics();
+            book.GetStatistics();
+            var result = book.Statistics;
 
             Assert.Equal('D', result.Letter);
         }

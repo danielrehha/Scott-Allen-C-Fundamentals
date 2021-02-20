@@ -3,11 +3,13 @@ using System.Collections.Generic;
 
 namespace GradeBook
 {
+    public delegate void GradeAddedDelegate(Object sender, EventArgs args);
+
     public class Book
     {
         public string Name;
         public List<double> grades = new List<double>();
-        private Statistics statistics;
+        public Statistics Statistics;
 
         public Book(string name)
         {
@@ -16,17 +18,28 @@ namespace GradeBook
 
         public void GetStatistics()
         {
-            statistics = new Statistics(grades);
-            Console.WriteLine($"Low grade: {statistics.Low}");
-            Console.WriteLine($"High grade: {statistics.High}");
-            Console.WriteLine($"Average grade: {statistics.Average:N1}");
-            Console.WriteLine($"Letter: {statistics.Letter}");
+            Statistics = new Statistics(grades);
+            Console.WriteLine($"Low grade: {Statistics.Low}");
+            Console.WriteLine($"High grade: {Statistics.High}");
+            Console.WriteLine($"Average grade: {Statistics.Average:N1}");
+            Console.WriteLine($"Letter: {Statistics.Letter}");
         }
 
         public void AddGrade(double grade)
         {
-            grades.Add(grade);
-            Console.WriteLine($"Added grade {grade} to GradeBook.");
+            if(grade >= 0 && grade <= 100)
+            {
+                grades.Add(grade);
+                if(GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
+            } else
+            {
+                throw new ArgumentException($"Invalid {nameof(grade)}");
+            }
         }
+
+        public event GradeAddedDelegate GradeAdded;
     }
 }
