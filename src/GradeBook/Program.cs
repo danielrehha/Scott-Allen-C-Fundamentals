@@ -7,9 +7,15 @@ namespace GradeBook
     {
         static void Main(string[] args)
         {
-            var book = new Book("GradeBook");
+            IBook book = new DiskBook("GradeBook");
             book.GradeAdded += GradeAddedNotification;
+            EnterGrades(book);
 
+            //book.GetStatistics();
+        }
+
+        private static void EnterGrades(IBook book)
+        {
             while (true)
             {
                 Console.WriteLine("Enter a grade or 'q' to quit");

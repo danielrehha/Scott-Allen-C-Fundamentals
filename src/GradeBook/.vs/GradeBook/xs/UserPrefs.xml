@@ -1,23 +1,26 @@
 ﻿<Properties StartupConfiguration="{759FB4B3-7B4E-4300-AD1B-6BD4877CE6AC}|Default">
   <MonoDevelop.Ide.ItemProperties.GradeBook PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../test/GradeBook.Tests/TypeTests.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Models/DiskBook.cs">
     <Files>
-      <File FileName="Program.cs" Line="10" Column="1" />
-      <File FileName="Book.cs" />
-      <File FileName="Statistics.cs" Line="29" Column="10" />
-      <File FileName="../../test/GradeBook.Tests/BookTests.cs" Line="47" Column="52" />
-      <File FileName="../../test/GradeBook.Tests/TypeTests.cs" Line="6" Column="33" />
+      <File FileName="Program.cs" Line="32" Column="42" />
+      <File FileName="Statistics.cs" Line="15" Column="31" />
+      <File FileName="../../test/GradeBook.Tests/BookTests.cs" />
+      <File FileName="../../test/GradeBook.Tests/TypeTests.cs" />
+      <File FileName="Models/InMemoryBook.cs" Line="18" Column="13" />
+      <File FileName="Models/Book.cs" Line="1" Column="1" />
+      <File FileName="Models/DiskBook.cs" Line="13" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GradeBook" expanded="True">
             <Node name="GradeBook" expanded="True">
+              <Node name="Models" expanded="True">
+                <Node name="DiskBook.cs" selected="True" />
+              </Node>
               <Node name="scriptcs_bin" expanded="True" />
             </Node>
-            <Node name="GradeBook.Tests" expanded="True">
-              <Node name="TypeTests.cs" selected="True" />
-            </Node>
+            <Node name="GradeBook.Tests" expanded="True" />
           </Node>
         </State>
       </Pad>

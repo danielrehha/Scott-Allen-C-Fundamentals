@@ -8,13 +8,13 @@ namespace GradeBook.Tests
         [Fact]
         public void CanSetNameFromReference()
         {
-            var book1 = new Book("Book 1");
+            var book1 = new InMemoryBook("Book 1");
             SetName(book1, "New name");
 
             Assert.Equal("New name", book1.Name);
         }
 
-        private void SetName(Book book, string name)
+        private void SetName(InMemoryBook book, string name)
         {
             book.Name = name;
         }
@@ -22,15 +22,15 @@ namespace GradeBook.Tests
         [Fact]
         public void CannotSetNameFromNewValue()
         {
-            var book1 = new Book("Book 1");
+            var book1 = new InMemoryBook("Book 1");
             GetBookSetName(book1, "New Book");
 
             Assert.Equal("Book 1", book1.Name);
         }
 
-        private void GetBookSetName(Book book1, string name)
+        private void GetBookSetName(InMemoryBook book1, string name)
         {
-            book1 = new Book(name);
+            book1 = new InMemoryBook(name);
             book1.Name = name;
         }
 

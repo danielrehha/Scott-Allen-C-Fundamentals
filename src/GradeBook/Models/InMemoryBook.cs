@@ -3,20 +3,17 @@ using System.Collections.Generic;
 
 namespace GradeBook
 {
-    public delegate void GradeAddedDelegate(Object sender, EventArgs args);
-
-    public class Book
+    public class InMemoryBook : Book
     {
-        public string Name;
         public List<double> grades = new List<double>();
         public Statistics Statistics;
 
-        public Book(string name)
+        public InMemoryBook(string name) : base(name)
         {
             Name = name;
         }
 
-        public void GetStatistics()
+        public override void GetStatistics()
         {
             Statistics = new Statistics(grades);
             Console.WriteLine($"Low grade: {Statistics.Low}");
@@ -25,21 +22,22 @@ namespace GradeBook
             Console.WriteLine($"Letter: {Statistics.Letter}");
         }
 
-        public void AddGrade(double grade)
+        public override void AddGrade(double grade)
         {
-            if(grade >= 0 && grade <= 100)
+            if (grade >= 0 && grade <= 100)
             {
                 grades.Add(grade);
-                if(GradeAdded != null)
+                if (GradeAdded != null)
                 {
                     GradeAdded(this, new EventArgs());
                 }
-            } else
+            }
+            else
             {
                 throw new ArgumentException($"Invalid {nameof(grade)}");
             }
         }
 
-        public event GradeAddedDelegate GradeAdded;
+        public override event GradeAddedDelegate GradeAdded;
     }
 }

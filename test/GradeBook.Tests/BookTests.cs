@@ -9,7 +9,7 @@ namespace GradeBook.Tests
         public void StatisticsHigh()
         {
             //arrange
-            var book = new Book("New book");
+            var book = new InMemoryBook("New book");
             book.AddGrade(23.2);
             book.AddGrade(12.4);
             book.AddGrade(32.1);
@@ -24,7 +24,7 @@ namespace GradeBook.Tests
         public void StatisticsLow()
         {
             //arrange
-            var book = new Book("New book");
+            var book = new InMemoryBook("New book");
             book.AddGrade(23.2);
             book.AddGrade(12.4);
             book.AddGrade(32.1);
@@ -39,7 +39,7 @@ namespace GradeBook.Tests
         public void StatisticsAvg()
         {
             //arrange
-            var book = new Book("New book");
+            var book = new InMemoryBook("New book");
             book.AddGrade(23.2);
             book.AddGrade(12.4);
             book.AddGrade(32.1);
@@ -55,7 +55,7 @@ namespace GradeBook.Tests
         [Fact]
         public void StatisticsLetter()
         {
-            var book = new Book("New book");
+            var book = new InMemoryBook("New book");
             book.AddGrade(92.0);
             book.AddGrade(65.0);
             book.AddGrade(50.0);
